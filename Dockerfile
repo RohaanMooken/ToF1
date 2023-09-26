@@ -1,2 +1,2 @@
-   FROM php:apache 
-   COPY . /var/www/html/
+FROM php:apache 
+COPY . /var/www/html/
