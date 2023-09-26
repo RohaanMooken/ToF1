@@ -1,11 +1,31 @@
+# version: '2.0'
+
+# services:
+#     Website1:
+#         image: ghcr.io/RohaanMooken/X:latest #change samoht89 to your username and website1 to your respitory name
+#         deploy:
+#         labels: [com.centurylinklabs.watchtower.enable=true]
+#         container_name: mooken #Your firstname-"usernameAtSchool"
+#         restart: always
+#         ports:
+#             - "80:80" #Change first port if using nginx
+
+
 version: '2.0'
 
 services:
-    Website1:
-        image: ghcr.io/RohaanMooken/X:latest
-        deploy:
-        labels: [com.centurylinklabs.watchtower.enable=true]
-        container_name: mooken
-        restart: always
-        ports:
-            - "80:80"
+  Website1:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+    image: ghcr.io/RohaanMooken/X:latest #change samoht89 to your username and website1 to your respitory name
+    deploy:
+      labels: [com.centurylinklabs.watchtower.enable=true]
+    container_name: mooken #Your firstname-"usernameAtSchool"
+    restart: always
+    ports:
+      - "80:80" #Change first port if using nginx
