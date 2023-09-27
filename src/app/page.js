@@ -4,21 +4,21 @@ export default function Home() {
   return (
     <div>
       <header>
-        <div className="flex justify-between">
-          <a href="/" className="ml-8 mt-4">X</a>
+        <div className="flex flex-row items-center justify-between">
+          <a href="/" className="ml-8 mt-4 font-black text-4xl"><h1 className='text-primary'>X</h1></a>
           <nav>
             <ul className="flex space-x-6 mr-8 mt-4">
               <li>
-                <a href="">Home</a>
+                <a className='bg-secondary hover:text-primary p-2 rounded-xl font-bold' href="">Home</a>
               </li>
               <li>
-                <a href="">About</a>
+                <a className='bg-secondary hover:text-primary p-2 rounded-xl font-bold' href="">About</a>
               </li>
               <li>
-                <a href="">Services</a>
+                <a className='bg-secondary hover:text-primary p-2 rounded-xl font-bold' href="">Services</a>
               </li>
               <li>
-                <a href="">Contact</a>
+                <a className='bg-secondary hover:text-primary p-2 rounded-xl font-bold' href="">Contact</a>
               </li>
             </ul>
           </nav>
