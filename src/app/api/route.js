@@ -1,8 +1,6 @@
 let condition = false;
 
 export async function POST(request) {
-    console.log(request.json())
-
     condition = true
 
     return new Response()

@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
 						</div>
 					</header>
 					<main className="flex h-screen flex-col items-center justify-between p-24">
-						<div className="bg-secondary p-8 rounded-3xl flex flex-col items-center justify-between h-3/6">
+						<div className="bg-secondary p-8 rounded-3xl flex flex-col items-center justify-between h-5/6">
 							{children}
 						</div>
 					</main>
