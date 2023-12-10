@@ -12,8 +12,10 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/api");
+        const res = await fetch("/api/classified");
         const data = await res.json()
+
+        
 
         if (data) {
         router.push("/classified");

@@ -5,18 +5,15 @@ import { useEffect } from "react";
 
 export default function Classified() {
 	(async function () {
-		const data = [
-			{ x: 0, y: 10 },
-			{ x: 1, y: 20 },
-			{ x: 2, y: 30 },
-			{ x: 3, y: 20 },
-			{ x: 4, y: 50 },
-			{ x: 5, y: -60 },
-			{ x: 6, y: 70 },
-			{ x: 7, y: 80 },
-		];
+		let data = [];
 
-		new Chart(document.getElementById("chartJS"), {
+		const res = await fetch("http://localhost:3000/api/data");
+        const da = await res.json()
+		for (const key in da) {
+			data.push({x: key, y: da[key]})
+		}
+
+		new Chart("chartJS", {
 			type: "line",
 			data: {
 				labels: data.map((row) => row.x),
