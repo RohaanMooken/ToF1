@@ -7,7 +7,7 @@ export default function Classified() {
 	(async function () {
 		let data = [];
 
-		const res = await fetch("http://localhost:3000/api/data");
+		const res = await fetch("https://x.stolav.net/api/data");
         const da = await res.json()
 		for (const key in da) {
 			data.push({x: key, y: da[key]})
