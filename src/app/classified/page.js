@@ -5,27 +5,27 @@ import { useEffect } from "react";
 
 export default function Classified() {
 	(async function () {
-		let data = [1];
+		// let data = [];
 
 		const res = await fetch("https://x.stolav.net/api/data");
-        const da = await res.json()
-		console.log(da)
-		for (const key in da) {
-			data.push({x: key, y: da[key]})
-		}
+        const data = await res.json()
+		console.log(data)
+		// for (const key in da) {
+		// 	data.push({x: key, y: da[key]})
+		// }
 
 		new Chart("chartJS", {
 			type: "line",
 			data: {
-				labels: ["5min"],
+				labels: ["5min", "10min", "15min", "20min", "25min", "30min", "35min", "40min", "45min", "50min", "55min", "60min"],
 				datasets: [
 					{
 						label: "Test",
-						data: data.map((row) => row.y),
+						data: data[0].map((index) => index),
 					},
 					{
 						label: "Test2",
-						data: data.map((row) => row.y + -12),
+						data: data[1].map((index) => index),
 					},
 				],
 			},
