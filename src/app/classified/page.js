@@ -17,14 +17,15 @@ export default function Classified() {
 		new Chart("chartJS", {
 			type: "line",
 			data: {
-				labels: ["5min", "10min", "15min", "20min", "25min", "30min", "35min", "40min", "45min", "50min", "55min", "60min"],
+				labels: ['60min', '55min', '50min', '45min', '40min', '35min', '30min', '25min', '20min', '15min', '10min', '5min']
+				,
 				datasets: [
 					{
-						label: "Test",
+						label: "Temperature (C)",
 						data: data[0].map((index) => index),
 					},
 					{
-						label: "Test2",
+						label: "Humidity (%)",
 						data: data[1].map((index) => index),
 					},
 				],
