@@ -14,7 +14,7 @@ export default function Classified() {
 		console.log(restrictedData);
 
 		if (!restrictedData) {
-			redirect("/")
+			redirect("https://x.stolav.net/");
 		}
 
 		// Fetch data for the chart
