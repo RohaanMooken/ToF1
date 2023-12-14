@@ -9,12 +9,14 @@ export default function Classified() {
 		// Check to see if the user has permission to access the page
 		// aka check to see if the api is true
 
+		const router = useRouter()
+
 		const restrictedRes = await fetch("https://x.stolav.net/api/classified");
 		const restrictedData = await restrictedRes.json();
 		console.log(restrictedData);
 
 		if (!restrictedData) {
-			redirect("https://x.stolav.net/");
+			router.push("/");
 		}
 
 		// Fetch data for the chart
