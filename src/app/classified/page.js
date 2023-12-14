@@ -1,8 +1,7 @@
 "use client";
 
 import { Chart } from "chart.js/auto";
-import { useEffect } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Classified() {
 	(async function () {
