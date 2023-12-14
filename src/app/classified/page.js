@@ -2,18 +2,27 @@
 
 import { Chart } from "chart.js/auto";
 import { useEffect } from "react";
+import { redirect } from "next/navigation";
 
 export default function Classified() {
 	(async function () {
-		// let data = [];
+		// Check to see if the user has permission to access the page
+		// aka check to see if the api is true
 
+		const restrictedRes = await fetch("https://x.stolav.net/api/classified");
+		const restrictedData = await restrictedRes.json();
+		console.log(restrictedData);
+
+		if (!restrictedData) {
+			redirect("/")
+		}
+
+		// Fetch data for the chart
 		const res = await fetch("https://x.stolav.net/api/data");
         const data = await res.json()
 		console.log(data)
-		// for (const key in da) {
-		// 	data.push({x: key, y: da[key]})
-		// }
-
+		
+		// Create a new chart and plot the data
 		new Chart("chartJS", {
 			type: "line",
 			data: {
