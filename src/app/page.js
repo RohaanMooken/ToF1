@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import blockIcon from "../../public/stop-blocked-icon.svg";
@@ -6,35 +6,32 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
+	const router = useRouter();
 
-  const router = useRouter()
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await fetch("/api/classified");
+				const data = await res.json();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("/api/classified");
-        const data = await res.json()
+				if (data) {
+					router.push("/classified");
+				}
+			} catch (err) {
+				console.error(err);
+			}
+		};
 
-        
+		fetchData();
 
-        if (data) {
-        router.push("/classified");
-        }
-      } catch (err) {
-        console.error(err)
-      }
-    };
+		const intervalId = setInterval(() => {
+			fetchData();
+		}, 1000);
 
-    fetchData();
-
-    const intervalId = setInterval(() => {
-      fetchData();
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+		return () => {
+			clearInterval(intervalId);
+		};
+	}, []);
 
 	return (
 		<>

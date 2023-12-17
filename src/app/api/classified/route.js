@@ -1,17 +1,14 @@
 let condition = false;
 
 export async function POST(request) {
-    condition = true
+    const data = await request.json()
 
-    return new Response()
+    condition = data;
+
+    return new Response();
 }
 
 export async function GET(request) {
 
-    if (condition) {
-        condition = false;
-        return new Response(true)
-    } else {
-        return new Response(false)
-    }
+    return new Response(condition);
 }

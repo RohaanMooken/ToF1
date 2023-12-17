@@ -12,7 +12,14 @@ export default function Classified() {
 
 		const restrictedRes = await fetch("https://x.stolav.net/api/classified");
 		const restrictedData = await restrictedRes.json();
-		console.log(restrictedData);
+		// console.log(restrictedData);
+
+		const statement = false;
+
+		await fetch("https://x.stolav.net/api/classified", {
+			method: "POST",
+			body: JSON.stringify(statement)
+		})
 
 		if (!restrictedData) {
 			router.push("/");
@@ -21,7 +28,7 @@ export default function Classified() {
 		// Fetch data for the chart
 		const res = await fetch("https://x.stolav.net/api/data");
         const data = await res.json()
-		console.log(data)
+		// console.log(data)
 		
 		// Create a new chart and plot the data
 		new Chart("chartJS", {
