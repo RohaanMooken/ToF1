@@ -59,7 +59,11 @@ USER nextjs
 EXPOSE 80
 
 ENV PORT 80
-# # Set hostname to localhost
+# # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 
-CMD ["ncat", "172.232.159.28", "8989"]
+CMD ["node", "server.js"]
+
+## Boye Here
+
+##
