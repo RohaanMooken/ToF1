@@ -62,4 +62,7 @@ ENV PORT 80
 # # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 
-CMD ["node", "server.js"]
+RUN apk add --no-cache supervisor
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
